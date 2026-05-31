@@ -45,8 +45,19 @@ Some special strings
 * Empty string: $0\r\n\r\n
 * Null value: $-1\r\n (length -1 is special value indicating lack of data)
 
-Arrays: 
+Arrays
 
+["a", 200, "cat"] becomes:
+*3\r\n (asterisk, number of elements, CLRF, RESP-enoded elements)
+$1\r\na\r\n
+:200\r\n
+$3\r\ncat\r\n
+
+Some special arrays
+* Empty array: *0\r\n
+* Null array: *-1\r\n (length -1 is special value indicating lack of data)
+  
+Note: can also have nested arrays
 
 [Implementing Redis' Wire Protocol - RESP](https://youtu.be/wnHZHGc8tW8?si=025wLUAUFmtE4B7q)
 
