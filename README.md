@@ -109,13 +109,40 @@ Some common strategies
 * volatile-random- picks some keys with EXPIRE set at random to evict (uniform access across keys)
 * volatile-ttl- picks key with shortest TTL and evicts it
 
-Approximated LRU
+Use lfu when keys that are used often need to be kept in memory. 
+
+Approximated LRU (Redis 3.0)
 
 Redis LRU is approximated, not an exact algorithm. Satisficing, very memory-efficient. 
 
-Core idea: from sample of keys, evict LRU
+Core idea: take "n" samples of "k" keys, evict LRU
 
-Exact LRU required extra memory. Imagine a DLL (double linked list), additional memory overhead of maintaining pointers is overkill. 
+Exact LRU requires extra memory. Which key accessed when? Imagine a DLL (double linked list), additional memory overhead of maintaining pointers is overkill. 
+
+Redis uses that memory for data instead of pointers. 
+
+New LFU Mode (Redis 4.0)
+
+Storing a huge integer value is costly. An integer for every key (0-1 million). Requires 4 bytes across all keys. Every time we get or update, it does frequency++
+
+Approximately instead
+
+Morris Counter- does not use regular integer and frequency++, it is space-efficient counting
+
+You can store 1 million value in 2 or 3 bytes. 
+
+frequency is not ever-increasing. Decay over time reduces value. 
+* Saturate counter at 1 million requests
+* Decay the value every 1 minute
+* You can configure this in redis.conf file
+
+Even if dip in key access, it should not be evicted? Comparison to stock market. 
+
+<!--
+See research paper
+How probabilitistic data structures are build
+https://arpitbhayani.me/blogs/morris-counter
+-->
 
 [Implementing Command Pipelining](https://youtu.be/2q7RuEb9z-M?si=SYLiGS1yRsKAfXX5)
 
