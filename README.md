@@ -12,11 +12,11 @@
 
 [Wire Protocols, Why Are They Needed, and Redis' Wire Protocol - RESP](https://youtu.be/PtJl3jtmqgE?si=tdF0Ypx-jCagasXg)
 
-"For a Redis Server to understand what a client wants, the client needs to follow a protocol": [Redis Serialization Protocol](https://redis.io/docs/latest/develop/reference/protocol-spec/)
-
 <!--
 https://valkey.io/topics/protocol/
 -->
+
+"For a Redis Server to understand what a client wants, the client needs to follow a protocol": [Redis Serialization Protocol](https://redis.io/docs/latest/develop/reference/protocol-spec/)
 
 RESP supports common datatypes ("Redis is an extremely simple database")
 * int (:)
@@ -83,6 +83,28 @@ Why not use JSON
 [Implementing DEL, EXPIRE, and Cleanup in Redis](https://youtu.be/yGdk0hmvkgo?si=yDESzMspeziXVFht)
 
 [Key Eviction Strategies in Redis and Implementing Simple First Eviction](https://youtu.be/EkaTFT9ox-I?si=a_JL5bK2PUm4d-Tf)
+
+<!--
+https://valkey.io/topics/lru-cache/
+https://redis.io/docs/latest/develop/reference/eviction/
+https://docs.digitalocean.com/products/databases/valkey/how-to/choose-eviction-policies/
+-->
+
+Keys Eviction
+
+Redis is RAM-bound. We cannot have unbounded storage. To accomodate newer data, we need to evict older data. 
+
+When reach limit and RAM is full, if insert large number of keys, and not enough RAM to allocate, process would crash. Out-of-memory error. 1 GB limit and exhuasted. 
+
+How Redis evicts?
+maxmemory configuration that limits the max amount of data it can hold. When it reaches, it evicts old data. 
+
+Some common strategies
+* noeviction- new values aren't saved when memory limit is reached
+* allkeys-lru- removes least recently used keys (recommended in Digital Ocean Valkey docs)
+* allkeys-lfu- removes least frequently used keys
+* volatile-lru- removes LRU keys with EXPIRE set
+* volatile-lfu- removes LFU keys with EXPIRE set
 
 [Implementing Command Pipelining](https://youtu.be/2q7RuEb9z-M?si=SYLiGS1yRsKAfXX5)
 
