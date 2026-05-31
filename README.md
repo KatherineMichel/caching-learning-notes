@@ -12,6 +12,30 @@
 
 [Wire Protocols, Why Are They Needed, and Redis' Wire Protocol - RESP](https://youtu.be/PtJl3jtmqgE?si=tdF0Ypx-jCagasXg)
 
+"For a Redis Server to understand what a client wants, the client needs to follow a protocol": [Redis Serialization Protocol](https://redis.io/docs/latest/develop/reference/protocol-spec/)
+
+<!--
+https://valkey.io/topics/protocol/
+-->
+
+RESP supports common datatypes ("Redis is an extremely simple database")
+* int (:)
+* string (+), bulk string ($)
+* arrays
+* a way to convey errors
+
+Serializing an array of strings using RESP: PUT K V ["PUT", "K", "V"] 
+
+RESP is a request-response protocol (client sends request in RESP, server sends response in RESP)
+
+Datatype starts with special character and ends with \r\n (CLRF)
+
+Examples:
+* Simple string: +PONG\r\n\ (very efficient, very low memory overhead, requires n+3 bytes in response)
+* Integer: :1729\r\n
+* Bulk strings: $4\r\n\PONG\r\n\ (PONG is 4 bytes, binary safe)
+
+
 [Implementing Redis' Wire Protocol - RESP](https://youtu.be/wnHZHGc8tW8?si=025wLUAUFmtE4B7q)
 
 [Implementing Redis' PING Command](https://youtu.be/70UJ1QTQj5Y?si=foFDCG3F1he8pTkB)
