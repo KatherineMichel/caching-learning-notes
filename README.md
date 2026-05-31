@@ -21,8 +21,8 @@ https://valkey.io/topics/protocol/
 RESP supports common datatypes ("Redis is an extremely simple database")
 * int (:)
 * string (+), bulk string ($)
-* arrays
-* a way to convey errors
+* arrays (*)
+* a way to convey errors (-)
 
 Serializing an array of strings using RESP: PUT K V ["PUT", "K", "V"] 
 
@@ -33,7 +33,9 @@ Datatype starts with special character and ends with \r\n (CLRF)
 Examples:
 * Simple string: +PONG\r\n\ (very efficient, very low memory overhead, requires n+3 bytes in response)
 * Integer: :1729\r\n
-* Bulk strings: $4\r\n\PONG\r\n\ (PONG is 4 bytes, binary safe)
+* Bulk strings: $4\r\n\PONG\r\n\ (PONG is 4 bytes, binary safe, see explanation)
+* Array (see explanation)
+* Errors: -Key not found\r\n
 
 Importance of bulk strings
 * Simple strings are not binary safe (can contain any byte)
@@ -58,6 +60,15 @@ Some special arrays
 * Null array: *-1\r\n (length -1 is special value indicating lack of data)
   
 Note: can also have nested arrays
+
+RESP highlights:
+* Human readable
+* Simple, fewer bugs
+* Performant
+* Uses prefixed lengths (from beginning, it knows exactly how many bytes to read, even for arrays, memory optimization)
+
+Why not use JSON
+* They are very "bulky"
 
 [Implementing Redis' Wire Protocol - RESP](https://youtu.be/wnHZHGc8tW8?si=025wLUAUFmtE4B7q)
 
