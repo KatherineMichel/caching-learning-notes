@@ -105,6 +105,17 @@ Some common strategies
 * allkeys-lfu- removes least frequently used keys
 * volatile-lru- removes LRU keys with EXPIRE set
 * volatile-lfu- removes LFU keys with EXPIRE set
+* allkeys-random- picks some keys at random and evicts them (uniform access across keys)
+* volatile-random- picks some keys with EXPIRE set at random to evict (uniform access across keys)
+* volatile-ttl- picks key with shortest TTL and evicts it
+
+Approximated LRU
+
+Redis LRU is approximated, not an exact algorithm. Satisficing, very memory-efficient. 
+
+Core idea: from sample of keys, evict LRU
+
+Exact LRU required extra memory. Imagine a DLL (double linked list), additional memory overhead of maintaining pointers is overkill. 
 
 [Implementing Command Pipelining](https://youtu.be/2q7RuEb9z-M?si=SYLiGS1yRsKAfXX5)
 
