@@ -35,6 +35,18 @@ Examples:
 * Integer: :1729\r\n
 * Bulk strings: $4\r\n\PONG\r\n\ (PONG is 4 bytes, binary safe)
 
+Importance of bulk strings
+* Simple strings are not binary safe (can contain any byte)
+* Simple strings cannot contain \r\n (also a terminator)
+* It knows exactly how many bytes to read. Can store and send any binary info. 
+* Can be used to store any binary data (even a PNG image)
+
+Some special strings
+* Empty string: $0\r\n\r\n
+* Null value: $-1\r\n (length -1 is special value indicating lack of data)
+
+Arrays: 
+
 
 [Implementing Redis' Wire Protocol - RESP](https://youtu.be/wnHZHGc8tW8?si=025wLUAUFmtE4B7q)
 
