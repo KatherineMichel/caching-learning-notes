@@ -139,8 +139,9 @@ frequency is not ever-increasing. Decay over time reduces value.
 Even if dip in key access, it should not be evicted? Comparison to stock market. 
 
 <!--
-See research paper
 How probabilitistic data structures are build
+See research paper
+https://arxiv.org/abs/2010.02116
 https://arpitbhayani.me/blogs/morris-counter
 -->
 
