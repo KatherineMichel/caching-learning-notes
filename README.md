@@ -173,6 +173,42 @@ Why not use JSON
 
 [Event Loops Internals And How Redis Handles Multiple Connects on a Single Thread](https://youtu.be/U2IFZ_hw91o?si=VzZ55CHC4z1cf0hc)
 
+Asynchronous networking supporting concurrent clients
+
+Traditional way- each client -> it's own thread. Threads can be scheduled on multiple CPUs. Can run large number on concurrent clients, but needs to be made thread-safe. 
+
+Answer is I/O Multiplexing or Asynchronous I/O- how every single event-loop you have heard of is implemented
+
+Python Async I/O, JavaScript?, libevent, libuv
+
+If language is "single-threaded" but event loop is separate thread, it is not single-threaded. If is separate thread, why can't schedule normal CPU instructions to it? event-loop is neither separate thread nor separate process. Thin layer that only supports I/O. 
+
+Mupltiplex has to be provided by kernel system call interface to be notified. 
+
+Depending on OS and flavor, 3 ways to implement: EPOLL (Linux), KQueue (Mac), IOCP (Windows). Code same, just system call and arguments change. 
+
+Single thread supporting large number of concurrent clients
+
+Focusing on EPOLL
+* Can monitor a many file descriptors for new I/O
+* Everything is a file, has file descriptor
+* Pass all file descriptors you would want to monitor
+* EPOLL tells you which one(s) ready for new I/O
+
+Why it's possible for EPOLL to exist?
+
+
+<!--
+https://man7.org/linux/man-pages/man7/epoll.7.html
+https://en.wikipedia.org/wiki/Kqueue
+https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/kqueue.2.html
+https://en.wikipedia.org/wiki/Input/output_completion_port
+https://learn.microsoft.com/en-us/windows/win32/fileio/i-o-completion-ports
+https://docs.python.org/3/library/asyncio.html
+https://github.com/libevent/libevent
+https://github.com/libuv/libuv
+-->
+
 
 [Implementing Event Loops](https://youtu.be/SMmLVHgE4pM?si=zBAklRoupJpBKkLA)
 
