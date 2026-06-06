@@ -66,14 +66,43 @@ Multi-threading- every incoming request over network accepted by server and exec
 Multi-threading problem- how to ensure data correctness?
 * Classic problem of concurrency: k=10, two threads executing k++ (k++ is not thread-safe), possible final values are 11 or 12 (unpredictable behavior)
 * Way to solve: one thread acquires a lock while the other thread waits; first thread only releases when it's done and other thread takes over (always end up with 12) 
+* Two threads is true concurrency
 
 Ways to secure data correctness with pessimistic locking
-* Mutex
-* Semaphores
+* [Mutex](https://en.wikipedia.org/wiki/Lock_(computer_science))
+* [Semaphore](https://en.wikipedia.org/wiki/Semaphore_(programming))
+
+[Mutex versus Semaphore](https://www.geeksforgeeks.org/operating-systems/mutex-vs-semaphore/)
 
 I/0 Multiplexing (apparent concurrency, not "true concurrency")
+* How event loops are implemented
+* [System calls](https://en.wikipedia.org/wiki/System_call) happen in background to do I/O operations (disk I/O, network I/O)
+* [I/O system calls](https://www.geeksforgeeks.org/c/input-output-system-calls-c-create-open-close-read-write/) are blocking
+* Two servers connected over TCP connection- read from socket- read() blocks until other person sends ("this is extremely painful"... you are just waiting)
 
-To be continued...
+Popularity of multi-threading
+* This is why multi-threading is popular, to avoid being blocked
+* While one thread is waiting, other thread is scheduled on CPU to execute
+* This is slow. Blocked thread is ready to execute, but can't. 
+
+I/O Multiplexing is a way of doing better. How multiplexing works: 
+* Use I/O monitoring calls to monitor the sockets and fire "read" on the ones that have data
+* We do not invoke read() unless we know we are being sent data
+
+Any single-threaded db or process that claims to be supporting a large number of concurrent I/Os- this is execution behind the scenes
+
+What this event loop looks like
+* Single thread- not a separate thread or process (see diagram)
+* Everything running in one thread only
+* Accept many incoming TCP connections, read from a socket/execute incoming command, do again and again (system call tells you when there is data)
+  
+What Redis "beautifully" exploits:
+* Network I/O is slow (waiting on commands, reading)
+* In-memory ops is fast (operations are all in-memory, very fast; upon receiving commands, Redis can very quickly execute)
+
+Redis design choice
+* Single threaded (no need for mutex, semaphore, blocked threads/waiting)
+* Doing I/O multiplexing (can handle multiple, even a large number, of TCP connections concurrently)
 
 [Writing a Simple TCP Echo Server - Step 0 to Build Your Own Redis](https://youtu.be/zlxdX9f4l50?si=iDos7c6LSnlTQBHE) 
 
