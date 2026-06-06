@@ -64,11 +64,14 @@ Multi-threading- every incoming request over network accepted by server and exec
 * request 1 -> increment k -> thread 1 / request 2 -> increment k -> thread 2
 
 Multi-threading problem- how to ensure data correctness?
-* k=10, two threads executing k++, possible final values are 11 or 12
+* Classic problem of concurrency: k=10, two threads executing k++ (k++ is not thread-safe), possible final values are 11 or 12 (unpredictable behavior)
+* Way to solve: one thread acquires a lock while the other thread waits; first thread only releases when it's done and other thread takes over (always end up with 12) 
 
 Ways to secure data correctness with pessimistic locking
 * Mutex
 * Semaphores
+
+I/0 Multiplexing (apparent concurrency, not "true concurrency")
 
 
 [Writing a Simple TCP Echo Server - Step 0 to Build Your Own Redis](https://youtu.be/zlxdX9f4l50?si=iDos7c6LSnlTQBHE) 
