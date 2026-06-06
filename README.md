@@ -73,8 +73,10 @@ Ways to secure data correctness with pessimistic locking
 
 I/0 Multiplexing (apparent concurrency, not "true concurrency")
 
+To be continued...
 
 [Writing a Simple TCP Echo Server - Step 0 to Build Your Own Redis](https://youtu.be/zlxdX9f4l50?si=iDos7c6LSnlTQBHE) 
+
 
 [Wire Protocols, Why Are They Needed, and Redis' Wire Protocol - RESP](https://youtu.be/PtJl3jtmqgE?si=tdF0Ypx-jCagasXg)
 
