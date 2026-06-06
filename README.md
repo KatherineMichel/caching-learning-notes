@@ -8,6 +8,69 @@
 
 [Why and How Is Single-Threaded Redis Fast and Can Handle Multiple Connections?](https://youtu.be/h30k7YixrMo?si=A6W1b8d0ydo0hcap)
 
+Open-source, in-memory data structure store. Flexibility and simplicity. 
+
+Uses
+* Cache
+* Database
+* Message broker
+* Streaming engine
+
+Some [data types](https://valkey.io/topics/data-types/)
+* hash
+* list
+* set
+* sorted set
+* bitmap
+* hyperloglog
+* geospatial indexes
+* streams
+
+Some data type use cases
+* Realtime chat
+* Message buffer
+* Gaming leaderboards
+* Auth session store
+* Media streaming
+* Realtime analytics
+
+Every operation on Redis is atomic ("When command is executing, Redis does not context switch and start executing another command." You don't have to worry about concurrency. Regardless of how many TCP connections/clients.)
+* putting a key
+* adding to list
+* set union | intersection (don't have to worry about another thread, parallel thing while doing union)
+* incrementing the value (count++ is not thread-safe)
+
+This is the beauty of redis.
+
+In-memory- caching is the most common use of Redis. But...
+* Redis provides configurable persistence.
+* Can periodically dump data in memory to disk (if Redis process crashes, reboots, it doesn't start from scratch, can load last file dumped)
+* Can provide partial persistence to write-ahead logging of all commands (every command logged in aof- append only file that can be used to reconstruct Redis or setup replication another Redis)
+* Or no persistence at all (everything kept in memory, if crashes, ok losing all data)
+
+Other key features
+* Transactions
+* Pub/Sub (Publisher/consumers listening to same Redis on topic, when publisher publishes, all consumers listening to topic receive message, push-based)
+* TTL on keys (expiration, auto-delete; if no expiration, you will have memory-leaks)
+* LRU eviction (will accept writes, will not crash, will auto-evict key)
+
+Concurrent programming models (doing more than one thing at the same time)- single process
+
+Multiple ways to achieve concurrency in single process mode
+* 1st, most common approach: multi-threading
+
+Multi-threading- every incoming request over network accepted by server and executed in separate thread
+* Client connects to your database with command to execute, spin up new thread handling requests from client. Every new client has a new thread to handle everything. 
+* request 1 -> increment k -> thread 1 / request 2 -> increment k -> thread 2
+
+Multi-threading problem- how to ensure data correctness?
+* k=10, two threads executing k++, possible final values are 11 or 12
+
+Ways to secure data correctness with pessimistic locking
+* Mutex
+* Semaphores
+
+
 [Writing a Simple TCP Echo Server - Step 0 to Build Your Own Redis](https://youtu.be/zlxdX9f4l50?si=iDos7c6LSnlTQBHE) 
 
 [Wire Protocols, Why Are They Needed, and Redis' Wire Protocol - RESP](https://youtu.be/PtJl3jtmqgE?si=tdF0Ypx-jCagasXg)
