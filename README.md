@@ -190,10 +190,25 @@ Depending on OS and flavor, 3 ways to implement: EPOLL (Linux), KQueue (Mac), IO
 Single thread supporting large number of concurrent clients
 
 Focusing on EPOLL
-* Can monitor a many file descriptors for new I/O
-* Everything is a file, has file descriptor
-* Pass all file descriptors you would want to monitor
+* Can monitor many file descriptors for new I/O
+* In Unix and most OS, everything is a file, has file descriptor
+* Pass in all file descriptors you would want to monitor
 * EPOLL tells you which one(s) ready for new I/O
+
+How EPOLL works
+* Client connects via a socket (network card- internet port, wifi card), this triggers interrupt
+* Kernel stop doing everything else and reads from network card, data is now in the kernal buffer
+* Normal user application code would not have access to this space
+* 100s of processes are running in application space- node.js, python, browser, etc
+* CPU has limited ports- at max four processes can move forward concurrently
+* When your process is schedule on the CPU to execute, data will be copied from kernel space to user space, that is how your socket you are managing in code gets the data
+* Before the copy step happens there will be time when the kernel knows it has the data for the process and can tell EPOLL
+* Kernel buffer has access to both kernel space and user space
+* This is how I/O happens, and it is the heart of EPOLL
+
+  
+How system call interfacing is so important
+Core idea: 
 
 Why it's possible for EPOLL to exist?
 
