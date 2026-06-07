@@ -318,6 +318,16 @@ https://arpitbhayani.me/blogs/morris-counter
 
 [Implementing AOF Persistence](https://youtu.be/5SnkVoatBpA?si=iisw--vzrqNDbCrO)
 
+Redis has period persistence. Data in-memory can be optionally flushed to disk. 
+
+Persistent formats
+* RDB (Valkey Database)
+* AOF (append-only file)
+
+<!--
+https://valkey.io/topics/persistence/
+-->
+
 [Object, Encodings, and Implementing INCR](https://youtu.be/Dl9h6sQAFfk?si=VAM1SrLDVxqAin64)
 
 [Implementing INFO and allkeys-random Eviction](https://youtu.be/jmN3VRsUmRs?si=OhqFJnW29r0OH4w-)
