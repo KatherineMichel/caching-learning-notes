@@ -2,6 +2,8 @@
 
 ## Valkey
 
+[Top 8 Redis Use Cases](https://www.linkedin.com/posts/j-mahamed_redis-devops-systemdesign-share-7467146250451132417-bv6-/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAOxk18BcgN6WcUZfIqPuO1XxHylxwxaOJ4)
+
 ## Redis Internals
 
 [Redis Internals- Build Redis from Scratch](https://www.youtube.com/playlist?list=PLsdq-3Z1EPT0eElcdOON9fdaeaQjlyXDt) by Arpit Bhayani
