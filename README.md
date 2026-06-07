@@ -315,6 +315,7 @@ https://arpitbhayani.me/blogs/morris-counter
 
 [Implementing Command Pipelining](https://youtu.be/2q7RuEb9z-M?si=SYLiGS1yRsKAfXX5)
 
+
 [Implementing AOF Persistence](https://youtu.be/5SnkVoatBpA?si=iisw--vzrqNDbCrO)
 
 [Object, Encodings, and Implementing INCR](https://youtu.be/Dl9h6sQAFfk?si=VAM1SrLDVxqAin64)
@@ -330,4 +331,6 @@ https://arpitbhayani.me/blogs/morris-counter
 [How and Why Redis Overrides Malloc](https://youtu.be/RCNMYljRmY4?si=YY0Upev-gHoCIO5n)
 
 [How Databases Implement Graceful Shutdown using Signal Handling](https://youtu.be/l-Bf0Ssf2GE?si=_KpjU00cF9Y08lmv)
+
+[How Redis Implements Transactions and How We Implement It](https://youtu.be/USZAZeuP8Iw?si=pQLyHpfgDoPXoXfN)
 
