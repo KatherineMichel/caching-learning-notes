@@ -191,7 +191,7 @@ Single thread supporting large number of concurrent clients
 
 Focusing on EPOLL
 * Can monitor many file descriptors for new I/O
-* In Unix and most OS, everything is a file, has file descriptor
+* In Unix and most OS, everything is a file (socket, disk I/O, memory buffer, I/O devices- external devices, usb devices, etc), has file descriptor (32 bit integer value that uniquely identifies a file- disk or socket)
 * Pass in all file descriptors you would want to monitor
 * EPOLL tells you which one(s) ready for new I/O
 
@@ -206,14 +206,24 @@ How EPOLL works
 * Kernel buffer has access to both kernel space and user space
 * This is how I/O happens, and it is the heart of EPOLL
 
-  
-How system call interfacing is so important
 Core idea: 
+* EPOLL checks if I/O is ready
+* If yes, do I/O; if not, continue
 
-Why it's possible for EPOLL to exist?
+When client connecting to server, get socket file, register file descriptor with EPOLL. EPOLL will monitor every client connection along with the main server socket. 
 
+EPOLL syscalls:
+* epoll_create1- create new epoller
+* epoll_wait- waits for updates on registered file descriptors (blocking call, moves forward only when file descriptor(s) are ready for I/O)
+* epoll_ctl- register/deregister file descriptor
+
+Ready means data has been sent (until that time, socket is blocked, because client has yet to send data)
+
+Read, write, receive are blocking system calls. Without EPOLL, you couldn't move forward. 
 
 <!--
+https://man7.org/linux/man-pages/man2/syscalls.2.html
+
 https://man7.org/linux/man-pages/man7/epoll.7.html
 https://en.wikipedia.org/wiki/Kqueue
 https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/kqueue.2.html
