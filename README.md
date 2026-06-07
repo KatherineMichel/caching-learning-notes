@@ -234,12 +234,21 @@ https://github.com/libevent/libevent
 https://github.com/libuv/libuv
 -->
 
-
 [Implementing Event Loops](https://youtu.be/SMmLVHgE4pM?si=zBAklRoupJpBKkLA)
 
 [Implementing GET, SET, and TTL Commands in Redis](https://youtu.be/1rnEpo56LFk?si=mQ_wlfl0z_aDEMam)
 
+<!--
+https://valkey.io/commands/getset/
+https://valkey.io/commands/ttl/
+-->
+
 [Implementing DEL, EXPIRE, and Cleanup in Redis](https://youtu.be/yGdk0hmvkgo?si=yDESzMspeziXVFht)
+
+<!--
+https://valkey.io/commands/del/
+https://valkey.io/commands/expire/
+-->
 
 [Key Eviction Strategies in Redis and Implementing Simple First Eviction](https://youtu.be/EkaTFT9ox-I?si=a_JL5bK2PUm4d-Tf)
 
@@ -321,8 +330,4 @@ https://arpitbhayani.me/blogs/morris-counter
 [How and Why Redis Overrides Malloc](https://youtu.be/RCNMYljRmY4?si=YY0Upev-gHoCIO5n)
 
 [How Databases Implement Graceful Shutdown using Signal Handling](https://youtu.be/l-Bf0Ssf2GE?si=_KpjU00cF9Y08lmv)
-
-
-
-
 
