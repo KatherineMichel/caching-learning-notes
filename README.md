@@ -346,3 +346,6 @@ https://valkey.io/topics/persistence/
 
 [How Redis Implements Transactions and How We Implement It](https://youtu.be/USZAZeuP8Iw?si=pQLyHpfgDoPXoXfN)
 
+[How Redis Internally Implements Memory Efficient Lists - Ziplist and Quicklist](https://youtu.be/2EknAibFgu8?si=k7Prr7yNQnI-sNZZ)
+
+[How Redis Internally Implements Memory Efficient Sets - Intset](https://youtu.be/OPxs_D47yCI?si=_DgoXNLlcr__adpv)
