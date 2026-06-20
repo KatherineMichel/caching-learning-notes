@@ -349,3 +349,5 @@ https://valkey.io/topics/persistence/
 [How Redis Internally Implements Memory Efficient Lists - Ziplist and Quicklist](https://youtu.be/2EknAibFgu8?si=k7Prr7yNQnI-sNZZ)
 
 [How Redis Internally Implements Memory Efficient Sets - Intset](https://youtu.be/OPxs_D47yCI?si=_DgoXNLlcr__adpv)
+
+[How Redis powers Geospatial Queries using GeoHash Algorithm](https://youtu.be/rAi1h7dltCk?si=G_-qvMMA6pZJBYWt)
