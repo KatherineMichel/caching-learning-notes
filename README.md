@@ -1,6 +1,11 @@
 # Caching Learning Notes
 
 <!--
+https://diginomica.com/valkey-91-ships-hybrid-search-ai-maintainer-agents-engine
+Valkey project maintainer Madelyn Olson on the 9.1 release including hybrid search, AI maintainer agents and a 10% memory reduction. Plus a candid read on durability, SSD tiering and where the project sits next to a re-energized Redis.
+https://thenewstack.io/valkey-91-cuts-memory/
+Valkey 9.1 launched this week at the Open Source Summit with 10% memory savings, database-level ACLs, CLUSTERSCAN, integrated vector search, and a GA Valkey Admin tool for cluster operators.
+
 https://github.com/valkey-io/valkey/tree/unstable/src
 https://valkey.io/topics/persistence/
 https://valkey.io/topics/protocol/
@@ -21,6 +26,8 @@ https://hasgeek.com/rootconf/2025/sub/demystifying-valkey-cluster-architecture-i
 
 ![](images/redis-explained.jpg)
 Architecture Notes- Redis Explained Infographic
+
+[Redis Keys Explainer (Geeks for Geeks)](https://www.geeksforgeeks.org/system-design/a-complete-guide-to-redis-keys/#google_vignette)
 
 [Memcached](https://memcached.org/): Compared to Redis, lacked data types, had limited eviction policy, multi-threaded, required setup in distributed cluster
 
