@@ -16,6 +16,9 @@ https://valkey.io/topics/lru-cache/
 2025 - Demystifying Clustering in Valkey
 https://docs.google.com/presentation/d/1-oY_Y_hKVFu5oLF6iT9t3TGvmNKMbkFX/edit?slide=id.g3588a3ccce8_2_253#slide=id.g3588a3ccce8_2_253
 https://hasgeek.com/rootconf/2025/sub/demystifying-valkey-cluster-architecture-internals-WJYeTVakwJT3Kwm9iKMnqx
+
+https://docs.digitalocean.com/products/databases/valkey/
+https://docs.digitalocean.com/products/databases/valkey/how-to/choose-eviction-policies/
 -->
 
 ## Valkey
