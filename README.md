@@ -8,6 +8,10 @@
 
 [Redis Internals- Build Redis from Scratch](https://www.youtube.com/playlist?list=PLsdq-3Z1EPT0eElcdOON9fdaeaQjlyXDt) by Arpit Bhayani
 
+[Redis Internals- Reading Materials](https://docs.google.com/document/d/1lHKI6bia3ZEPoAKgXWIm_SKv_Sii1qtN3EYMEdxKpEQ/edit?tab=t.0)
+
+[Redis Internals- PDFs](https://drive.google.com/drive/u/1/folders/1-a1xtA0e4J6Jkmiy68TGHtbyCbInZi64)
+
 [Why and How Is Single-Threaded Redis Fast and Can Handle Multiple Connections?](https://youtu.be/h30k7YixrMo?si=A6W1b8d0ydo0hcap)
 
 Open-source, in-memory data structure store. Flexibility and simplicity. 
