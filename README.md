@@ -351,3 +351,9 @@ https://valkey.io/topics/persistence/
 [How Redis Internally Implements Memory Efficient Sets - Intset](https://youtu.be/OPxs_D47yCI?si=_DgoXNLlcr__adpv)
 
 [How Redis powers Geospatial Queries using GeoHash Algorithm](https://youtu.be/rAi1h7dltCk?si=G_-qvMMA6pZJBYWt)
+
+[How Redis Implements Strings](https://youtu.be/Bx7ykrizjCY?si=3FIDoGSgp0g8fND8)
+
+[Hyperloglog and Cardinality Estimation](https://youtu.be/tOsb-tFoPCg?si=SEoCmh6_IDLN8OMN)
+
+[How Redis implements LFU using Morris Counter](https://youtu.be/q6Q2ou0hCws?si=5JbOd_3UziJnbZk9)
