@@ -1,5 +1,18 @@
 # Caching Learning Notes
 
+<!
+https://github.com/valkey-io/valkey/tree/unstable/src
+https://valkey.io/topics/persistence/
+https://valkey.io/topics/protocol/
+https://valkey.io/commands/
+https://valkey.io/topics/benchmark/
+https://valkey.io/topics/lru-cache/
+
+2025 - Demystifying Clustering in Valkey
+https://docs.google.com/presentation/d/1-oY_Y_hKVFu5oLF6iT9t3TGvmNKMbkFX/edit?slide=id.g3588a3ccce8_2_253#slide=id.g3588a3ccce8_2_253
+https://hasgeek.com/rootconf/2025/sub/demystifying-valkey-cluster-architecture-internals-WJYeTVakwJT3Kwm9iKMnqx
+-->
+
 ## Valkey
 
 [Top 8 Redis Use Cases](https://www.linkedin.com/posts/j-mahamed_redis-devops-systemdesign-share-7467146250451132417-bv6-/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAOxk18BcgN6WcUZfIqPuO1XxHylxwxaOJ4)
@@ -15,6 +28,17 @@ Architecture Notes- Redis Explained Infographic
 Jeff Dean: Latency Numbers Every Programmer Should Know (graphic from GitHub user ayshen via [hellerbarde](https://gist.github.com/hellerbarde/2843375)); Info originally provided by [Peter Norvig](https://www.norvig.com/21-days.html#answers). 
 
 ## Redis Internals
+
+<!--
+11th
+https://x.com/arpit_bhayani/status/2052951085573423214
+12th
+https://x.com/arpit_bhayani/status/2053314925087346970
+18th
+https://x.com/arpit_bhayani/status/2060923868886511846
+26th
+https://x.com/arpit_bhayani/status/2071073659343732932
+-->
 
 [Redis Internals- Build Redis from Scratch](https://www.youtube.com/playlist?list=PLsdq-3Z1EPT0eElcdOON9fdaeaQjlyXDt) by Arpit Bhayani
 
